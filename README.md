@@ -1,6 +1,7 @@
 # googlemeetintegration
 ## add below nuget packages 
-![image](https://github.com/user-attachments/assets/11c50db3-8eef-436f-92fd-6e52dcae4370)
+![image](https://github.com/user-attachments/assets/19ab929b-4726-4a92-9131-e54dd38ce40a)
+
 ## in google developer console create project .enter required details like project name , return url and download credential.json
 
 
