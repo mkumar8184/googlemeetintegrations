@@ -1,0 +1,116 @@
+﻿@model Google.Apis.Calendar.v3.Data.Events
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+
+<div class="container mt-5">
+
+
+    <div class="text-center">       
+      <h3>My Meetings</h3>
+
+    </div>
+
+    <div class="row ">
+        <div class="col-md-12 mb-3 float-end">
+            <button id="showButton" class="btn btn-primary btn-sm mr-2">New Meeting</button>
+            <button id="hideButton" style="display:none;" class="btn btn-info btn-sm">Meeting List</button>
+
+        </div>
+    </div>
+    @if (Model.Items == null || !Model.Items.Any())
+    {
+        <p>No meeting found.</p>
+    }
+    else
+    {
+       
+        <div class="row" id="dvList">          
+
+        
+            @foreach (var eventItem in Model.Items)
+            {
+                <div class="card col-md-4 pl-2">
+                    <div class="card-header">
+                    <h6 class="card-title text-info">@eventItem.Summary</h6>
+                   
+
+                </div>
+                    <div class="card-body">
+                    Start: @eventItem.Start.DateTime.ToString() <br />
+                    End: @eventItem.End.DateTime.ToString() <br />
+                   @*  <p class="card-text">@eventItem.Description</p> *@
+                    <a href="@eventItem.HtmlLink" target="_blank">View on Google Calendar</a> <br />
+
+                        <div class="float-end">
+                            <form asp-action="CancelEvent" method="post" style="display:inline;">
+                                <input type="hidden" name="eventId" value="@eventItem.Id" />
+                                <button type="submit" class="btn btn-danger btn-sm">Cancel Event</button>
+                            </form>
+                        </div>
+                    
+                    </div>
+                </div>
+
+
+
+              
+            }
+          
+        </div>
+    }
+
+    <div id="dvCreateEvent" style="display:none;">
+
+    
+    <h2>New Meeting</h2>
+    <form asp-action="CreateEvent" method="post">
+        <div class="mb-3">
+            <label for="summary" class="form-label">Summary</label>
+            <input type="text" id="summary" name="summary" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" id="description" name="description" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input type="datetime-local" id="startDate" name="startDate" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="endDate" class="form-label">End Date</label>
+            <input type="datetime-local" id="endDate" name="endDate" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label for="attendees" class="form-label">Attendees (comma-separated emails)</label>
+            <input type="text" id="attendees" name="attendees" class="form-control" placeholder="example@example.com, another@example.com" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#showButton").click(function () {
+            $("#dvCreateEvent").show();
+            $("#dvList").hide();
+            $("#showButton").hide();
+            $("#hideButton").show();
+
+
+
+        });
+
+        $("#hideButton").click(function () {
+            $("#dvCreateEvent").hide();
+            $("#dvList").show();
+            $("#showButton").show();
+            $("#hideButton").hide();
+            
+        });
+
+
+    });
+</script>
