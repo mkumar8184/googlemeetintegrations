@@ -7,11 +7,14 @@
 Create ,cancel ,join and view your google meeting /calendar from asp.core web application
 
 ## Meeting list
-![image](https://github.com/user-attachments/assets/1c50770f-a57f-4d33-9ddd-617ba96836fd)
-## create new meeting
-![image](https://github.com/user-attachments/assets/456422b7-de1a-4b7b-babf-765a511b13dd)
+![image](https://github.com/user-attachments/assets/dc7542b8-d901-4a2e-b940-02a86733c77f)
 
-![image](https://github.com/user-attachments/assets/dfae0120-0773-468c-8101-7455d3c4b318)
+## create new meeting
+![image](https://github.com/user-attachments/assets/d84dffe2-d7c5-4112-9ad0-fb9866df1f55)
+## created meeting link
+![image](https://github.com/user-attachments/assets/b9072f30-91f8-476a-90c7-e20cc9487bef)
+)
 ## View & join in google calendar
-![image](https://github.com/user-attachments/assets/2be8dc75-5923-4d21-af4c-8834958d57fd)
+![image](https://github.com/user-attachments/assets/3f6f2a4e-abc9-4e57-9d5a-8f2c094d34ec)
+
 
